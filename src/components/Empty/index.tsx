@@ -3,7 +3,11 @@ import styles from "./Empty.module.css";
 export const Empty = () => {
   return (
     <div className={styles.container}>
-      <img className={styles.documentIcon} src="assets/document.svg" />
+      <img
+        className={styles.documentIcon}
+        src="assets/document.svg"
+        alt="icone de um documento"
+      />
       <strong className={styles.description}>
         Você ainda não tem tarefas cadastradas
       </strong>
