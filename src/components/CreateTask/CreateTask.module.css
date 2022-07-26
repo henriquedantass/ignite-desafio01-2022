@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px 8px;
+  width: 52%;
+  margin-top: -30px;
+}
+
+.input {
+  background-color: var(--gray-500);
+  color: var(--gray-300);
+  padding: 16px;
+  font-size: 1rem;
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+  width: 86%;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0px 8px;
+  padding: 16px;
+  color: var(--gray-100);
+  background-color: var(--blue-dark);
+  border-radius: 8px;
+  border-color: transparent;
+}
+
+.button:hover {
+  cursor: pointer;
+}
