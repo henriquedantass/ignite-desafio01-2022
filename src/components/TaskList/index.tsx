@@ -1,7 +1,12 @@
 import { Empty } from "../Empty";
+import { Task, TaskType } from "../Task";
 import styles from "./TaskList.module.css";
 
-export const TaskList = () => {
+interface TaskListProps {
+  tasks: TaskType[];
+}
+
+export const TaskList = ({ tasks }: TaskListProps) => {
   return (
     <section className={styles.container}>
       <div className={styles.header}>
@@ -14,7 +19,20 @@ export const TaskList = () => {
           <p className={styles.count}>0</p>
         </div>
       </div>
-      <Empty />
+      {tasks?.length > 0 ? (
+        <>
+          {tasks.map((item) => (
+            <Task
+              task={item}
+              key={item.id}
+              onDelete={(id: number) => console.log(id)}
+              onDone={(id: number) => console.log(id)}
+            />
+          ))}
+        </>
+      ) : (
+        <Empty />
+      )}
     </section>
   );
 };
