@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Empty } from "../Empty";
 import { Task, TaskType } from "../Task";
 import styles from "./TaskList.module.css";
@@ -9,16 +10,28 @@ interface TaskListProps {
 }
 
 export const TaskList = ({ tasks, onDelete, onDone }: TaskListProps) => {
+  const [doneTasks, setDoneTasks] = useState<string>("");
+
+  const handleFormatedTasksDone = () => {
+    const doneTasks = tasks.filter((item) => item.isCompleted === true);
+
+    setDoneTasks(`${doneTasks.length} de ${tasks.length}`);
+  };
+
+  useEffect(() => {
+    handleFormatedTasksDone();
+  }, [tasks]);
+
   return (
     <section className={styles.container}>
       <div className={styles.header}>
         <div className={styles.taskStatusContainer}>
           <p className={styles.tasksCreated}>Tarefas criadas</p>
-          <p className={styles.count}>0</p>
+          <p className={styles.count}>{tasks.length}</p>
         </div>
         <div className={styles.taskStatusContainer}>
           <p className={styles.tasksFinished}>Concluidas</p>
-          <p className={styles.count}>0</p>
+          <p className={styles.count}>{doneTasks}</p>
         </div>
       </div>
       <section className={styles.tasksList}>
