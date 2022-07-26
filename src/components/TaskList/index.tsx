@@ -4,9 +4,11 @@ import styles from "./TaskList.module.css";
 
 interface TaskListProps {
   tasks: TaskType[];
+  onDelete: (id: number) => void;
+  onDone: (id: number) => void;
 }
 
-export const TaskList = ({ tasks }: TaskListProps) => {
+export const TaskList = ({ tasks, onDelete, onDone }: TaskListProps) => {
   return (
     <section className={styles.container}>
       <div className={styles.header}>
@@ -19,20 +21,22 @@ export const TaskList = ({ tasks }: TaskListProps) => {
           <p className={styles.count}>0</p>
         </div>
       </div>
-      {tasks?.length > 0 ? (
-        <>
-          {tasks.map((item) => (
-            <Task
-              task={item}
-              key={item.id}
-              onDelete={(id: number) => console.log(id)}
-              onDone={(id: number) => console.log(id)}
-            />
-          ))}
-        </>
-      ) : (
-        <Empty />
-      )}
+      <section className={styles.tasksList}>
+        {tasks?.length > 0 ? (
+          <>
+            {tasks.map((item) => (
+              <Task
+                task={item}
+                key={item.id}
+                onDelete={(id: number) => onDelete(id)}
+                onDone={(id: number) => onDone(id)}
+              />
+            ))}
+          </>
+        ) : (
+          <Empty />
+        )}
+      </section>
     </section>
   );
 };

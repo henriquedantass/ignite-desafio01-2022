@@ -37,3 +37,10 @@
   font-weight: 700;
   padding: 2px 8px;
 }
+
+.tasksList {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px 0px;
+}

@@ -21,7 +21,9 @@ export const Task = ({ task, onDelete, onDone }: TaskProps) => {
         className={styles.checkbox}
         type="checkbox"
       />
-      <p className={styles.description}>{task.description}</p>
+      <p className={task.isCompleted ? styles.done : styles.description}>
+        {task.description}
+      </p>
       <img
         onClick={() => onDelete(task.id)}
         src="assets/trash.svg"
