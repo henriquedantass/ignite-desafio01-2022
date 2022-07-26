@@ -1,3 +1,4 @@
+import { Empty } from "../Empty";
 import styles from "./TaskList.module.css";
 
 export const TaskList = () => {
@@ -13,6 +14,7 @@ export const TaskList = () => {
           <p className={styles.count}>0</p>
         </div>
       </div>
+      <Empty />
     </section>
   );
 };
