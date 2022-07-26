@@ -1,5 +1,6 @@
 import { CreateTask } from "./components/CreateTask";
 import { Header } from "./components/Header";
+import { TaskList } from "./components/TaskList";
 import "./styles/global.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <section className="container">
         <Header />
         <CreateTask />
+        <TaskList />
       </section>
     </div>
   );
